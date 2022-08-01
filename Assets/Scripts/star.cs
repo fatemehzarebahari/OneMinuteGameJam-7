@@ -33,7 +33,7 @@ public class star : MonoBehaviour
             lineIsBeingDrawn = false;
             LineRenderer currentLine = lineConntainer.GetLine();
             currentLine.GetComponent<lineDetected>().setDetected(true);
-            Debug.Log("Entered");
+            currentLine.GetComponent<lineCollider>().SetCollider();
             StartCoroutine(lineConntainer.DestroyLine());
 
         }
