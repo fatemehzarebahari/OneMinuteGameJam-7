@@ -8,6 +8,12 @@ public class shootingStar : MonoBehaviour
 
     [SerializeField]
     float speed = 1;
+
+    [SerializeField]
+    float yDirection = -10;
+
+    [SerializeField]
+    float xDirection = -10;
     void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -15,7 +21,7 @@ public class shootingStar : MonoBehaviour
 
     private void Start()
     {
-        Vector2 v = new Vector2(-10, -10);
+        Vector2 v = new Vector2(xDirection, yDirection);
         rb.velocity = speed * v;
     }
 }

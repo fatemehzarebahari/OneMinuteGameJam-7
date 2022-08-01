@@ -17,27 +17,25 @@ public class lineCollider : MonoBehaviour
         myLine = this.GetComponent<LineRenderer>();
     }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-      //  SetCollider();
-    //}
 
     public void SetCollider()
     {
         
         Vector2 startPos = myLine.GetPosition(0);
         Vector2 endPos = myLine.GetPosition(1);
+
         if (startPos.x > endPos.x)
         {
             Vector2 temp = startPos;
             startPos = endPos;
             endPos = temp;
         }
-        boxCollid.transform.position = (endPos + startPos) / 2;
+
         float length = (endPos - startPos).magnitude;
         float deltaX = Mathf.Abs(endPos.x - startPos.x);
         float rotDeg = Mathf.Acos(deltaX / length);
+
+        boxCollid.transform.position = (endPos + startPos) / 2;
         if(startPos.y<endPos.y )
             boxCollid.transform.Rotate(0, 0, -(90-((rotDeg) * Mathf.Rad2Deg)));
         else

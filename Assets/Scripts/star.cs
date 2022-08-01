@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class star : MonoBehaviour
@@ -39,12 +37,7 @@ public class star : MonoBehaviour
         }
         
     }
-    // public void OnMouseUp()
-    //{
-      //  lineIsBeingDrawn = false;
-     //   line?.GetComponent<lineDetected>().setDetected(true);
-     //   Debug.Log("up");
-    //}
+
 
     
     private void Update()
