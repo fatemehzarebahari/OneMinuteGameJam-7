@@ -8,6 +8,9 @@ public class star : MonoBehaviour
     [SerializeField]
     DrawLine lineConntainer;
 
+    [SerializeField]
+    GameObject hover;
+
     LineRenderer line;
 
 
@@ -16,7 +19,8 @@ public class star : MonoBehaviour
 
     public void OnMouseUpAsButton()
     {
-        if (!lineIsBeingDrawn && line == null)
+        
+        if (!lineIsBeingDrawn)
         {
             line = Instantiate(linePrefab);
             lineConntainer.AddLine(line);
@@ -26,20 +30,29 @@ public class star : MonoBehaviour
             line.SetPosition(1, Camera.main.ScreenToWorldPoint(mousePos));
             lineIsBeingDrawn = true;
         }
-        else if(lineIsBeingDrawn && line == null)
+        else
         {
             lineIsBeingDrawn = false;
             LineRenderer currentLine = lineConntainer.GetLine();
             currentLine.GetComponent<lineDetected>().setDetected(true);
             currentLine.GetComponent<lineCollider>().SetCollider();
-            StartCoroutine(lineConntainer.DestroyLine());
+            float time = currentLine.GetComponent<destroyTime>().getTime();
+            StartCoroutine(lineConntainer.DestroyLine(time));
 
         }
         
     }
 
+    void OnMouseOver()
+    {
+        hover.SetActive(true);
+    }
 
-    
+    void OnMouseExit()
+    {
+        hover.SetActive(false);
+    }
+
     private void Update()
     {
         if (line != null && lineIsBeingDrawn) {

@@ -13,7 +13,7 @@ public class DrawLine : MonoBehaviour
         lines = new List<LineRenderer>();
     }
 
-
+    
     public void AddLine(LineRenderer line)
     {
         lines.Add(line);
@@ -24,12 +24,14 @@ public class DrawLine : MonoBehaviour
         return lines[lines.Count - 1];
     }
 
-    public IEnumerator  DestroyLine()
+    public IEnumerator  DestroyLine(float time)
     {
-        yield return new WaitForSeconds(3);
-        Debug.Log("3");
-        Destroy(lines[0].gameObject);
-        lines.RemoveAt(0);
+        if (lines.Count > 0)
+        {
+            yield return new WaitForSeconds(time);
+            Destroy(lines[0].gameObject);
+            lines.RemoveAt(0);
+        }
     }
 
 }

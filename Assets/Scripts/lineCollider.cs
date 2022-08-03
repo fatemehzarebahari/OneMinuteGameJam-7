@@ -12,15 +12,15 @@ public class lineCollider : MonoBehaviour
 
     void Awake()
     {
-        boxCollid = Instantiate(boxCollidPrefab);
-        boxCollid.transform.parent = transform;
         myLine = this.GetComponent<LineRenderer>();
     }
 
 
     public void SetCollider()
     {
-        
+
+        boxCollid = Instantiate(boxCollidPrefab);
+        boxCollid.transform.parent = transform;
         Vector2 startPos = myLine.GetPosition(0);
         Vector2 endPos = myLine.GetPosition(1);
 
@@ -42,6 +42,5 @@ public class lineCollider : MonoBehaviour
             boxCollid.transform.Rotate(0, 0, 90-((rotDeg)*Mathf.Rad2Deg));
         boxCollid.gameObject.transform.localScale = new Vector3(0.1f,length,0);
 
-        Debug.Log((Mathf.PI / 2 - rotDeg) * Mathf.Rad2Deg);
     }
 }
