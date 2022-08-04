@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openBox: {fileID: 3021018730133666145, guid: 982029d971f7e5b409ec6802bd70d1b7, type: 3}
+  OctupusAudio: {fileID: 1144726252188182277, guid: 948d1be63aa6f1f418a376ce55aa5087, type: 3}
+  octupus: {fileID: 0}
 --- !u!61 &8916484419468569401
 BoxCollider2D:
   m_ObjectHideFlags: 0

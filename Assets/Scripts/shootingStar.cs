@@ -16,6 +16,7 @@ public class shootingStar : MonoBehaviour
 
     public void Shoot(float xDirection,float yDirection)
     {
+        print("shoot");
         Vector2 v = new Vector2(xDirection, yDirection);
         rb.velocity = speed * v;
     }
