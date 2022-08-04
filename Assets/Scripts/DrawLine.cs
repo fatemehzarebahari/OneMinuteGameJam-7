@@ -23,7 +23,10 @@ public class DrawLine : MonoBehaviour
     {
         return lines[lines.Count - 1];
     }
-
+    public int CountLine()
+    {
+        return lines.Count;
+    }
     public IEnumerator  DestroyLine(float time)
     {
         if (lines.Count > 0)

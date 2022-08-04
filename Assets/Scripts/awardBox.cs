@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class awardBox : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    [SerializeField]
+    AudioSource openBox;
+    void OnCollisionEnter2D(Collision2D collision)
     {
+        openBox.Play();
         StarShooter.DestroyAll();
     }
     

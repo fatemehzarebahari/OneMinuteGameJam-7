@@ -13,6 +13,9 @@ public class StarShooter : MonoBehaviour
     [SerializeField]
     float yDirection = 0;
 
+    [SerializeField]
+    AudioSource shooterSFX;
+
 
     public static float count = 0;
 
@@ -56,6 +59,7 @@ public class StarShooter : MonoBehaviour
         newStar.GetComponent<shootingStar>().Shoot(aim.x, aim.y);
         stars.Add(newStar);
         count++;
+        shooterSFX.Play();
     }
 
     public static void removeStar(GameObject go)
@@ -69,9 +73,10 @@ public class StarShooter : MonoBehaviour
         foreach (GameObject star in stars)
         {
             Destroy(star);
-            removeStar(star);
+            //removeStar(star);
             count--;
         }
+        //stars.RemoveAll();
     }
 
 }

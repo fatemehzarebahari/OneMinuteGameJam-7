@@ -11,6 +11,9 @@ public class star : MonoBehaviour
     [SerializeField]
     GameObject hover;
 
+    [SerializeField]
+    AudioSource mouseHoverAudio;
+
     LineRenderer line;
 
 
@@ -45,6 +48,7 @@ public class star : MonoBehaviour
 
     void OnMouseOver()
     {
+        mouseHoverAudio.Play();
         hover.SetActive(true);
     }
 
