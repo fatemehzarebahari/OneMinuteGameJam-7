@@ -13,6 +13,7 @@ public class timer : MonoBehaviour
     [SerializeField]
     GameObject winningMenu;
 
+
     float timeRemaining = 60;
     private void Awake()
     {
@@ -47,6 +48,7 @@ public class timer : MonoBehaviour
         yield return new WaitForSeconds(t);
         Time.timeScale = 0;
         winningMenu.SetActive(true);
+
     }
 
 

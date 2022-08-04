@@ -23,8 +23,9 @@ public class StarShooter : MonoBehaviour
 
     float radius;
     
-    void Start() 
+    void Awake() 
     {
+        Time.timeScale = 1;
         radius = transform.localScale.x;
         Shoot(xDirection, yDirection);
 

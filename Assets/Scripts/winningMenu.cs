@@ -7,8 +7,8 @@ public class winningMenu : MonoBehaviour
 {
     public void play()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
     public void QuitGame()
     {

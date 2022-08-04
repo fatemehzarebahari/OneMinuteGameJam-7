@@ -20,8 +20,7 @@ public class controlAwardBox : MonoBehaviour
     {
         currentTime = 0f;
         System.Random rnd = new System.Random();
-        //appearenceTime = rnd.Next(0, 60);
-        appearenceTime = 5f;
+        appearenceTime = rnd.Next(0, 60);
         newAwardBox = Instantiate(awardBoxPrefab);
         newAwardBox.SetActive(false);
     }
