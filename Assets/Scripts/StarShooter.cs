@@ -25,6 +25,7 @@ public class StarShooter : MonoBehaviour
     
     void Awake() 
     {
+        count = 0;
         Time.timeScale = 1;
         radius = transform.localScale.x;
         Shoot(xDirection, yDirection);

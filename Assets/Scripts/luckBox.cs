@@ -12,6 +12,10 @@ public class luckBox : MonoBehaviour
 
     [SerializeField]
     Transform starParent;
+
+    //[SerializeField]
+    //ParticleSystem explosion;
+
     List<Transform> children;
 
     [SerializeField]
@@ -25,6 +29,7 @@ public class luckBox : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //explosion.Play();
         openBox.Play(); 
         Destroy(gameObject);
         createRandomLines();
@@ -42,13 +47,9 @@ public class luckBox : MonoBehaviour
             newLine.SetPosition(1, children[b].GetComponent<Transform>().position);
             newLine.GetComponent<lineCollider>().SetCollider();
             lineContainer.AddLine(newLine);
-            if (lineContainer.CountLine() > 0)
-            {
-                float time = newLine.GetComponent<destroyTime>().getTime();
-                StartCoroutine(lineContainer.DestroyLine(time));
-            }
 
         }
+
     }
 
     void gatherChildren()

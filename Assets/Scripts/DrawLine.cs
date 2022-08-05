@@ -27,7 +27,7 @@ public class DrawLine : MonoBehaviour
     {
         return lines.Count;
     }
-    public IEnumerator  DestroyLine(float time)
+    /*public IEnumerator  DestroyLine(float time)
     {
         if (lines.Count > 0)
         {
@@ -35,6 +35,6 @@ public class DrawLine : MonoBehaviour
             Destroy(lines[0].gameObject);
             lines.RemoveAt(0);
         }
-    }
+    }*/
 
 }

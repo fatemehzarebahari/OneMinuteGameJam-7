@@ -21,6 +21,7 @@ public class timer : MonoBehaviour
     }
     void Update()
     {
+        print(StarShooter.count);
         if(StarShooter.count == 0)
         {
             StartCoroutine(won(2));

@@ -37,10 +37,12 @@ public class star : MonoBehaviour
         {
             lineIsBeingDrawn = false;
             LineRenderer currentLine = lineConntainer.GetLine();
-            currentLine.GetComponent<lineDetected>().setDetected(true);
-            currentLine.GetComponent<lineCollider>().SetCollider();
-            float time = currentLine.GetComponent<destroyTime>().getTime();
-            StartCoroutine(lineConntainer.DestroyLine(time));
+            if (currentLine != null)
+            {
+                currentLine.GetComponent<lineDetected>().setDetected(true);
+                currentLine.GetComponent<lineCollider>().SetCollider();
+            }
+            
 
         }
         

@@ -8,9 +8,8 @@ public class controlAwardBox : MonoBehaviour
     float waitingTime = 10f;
 
     [SerializeField]
-    GameObject awardBoxPrefab;
+    GameObject awardBox;
 
-    GameObject newAwardBox;
 
 
     float currentTime;
@@ -21,8 +20,7 @@ public class controlAwardBox : MonoBehaviour
         currentTime = 0f;
         System.Random rnd = new System.Random();
         appearenceTime = rnd.Next(0, 60);
-        newAwardBox = Instantiate(awardBoxPrefab);
-        newAwardBox.SetActive(false);
+        awardBox.SetActive(false);
     }
 
     void Update()
@@ -39,8 +37,8 @@ public class controlAwardBox : MonoBehaviour
     }
     private IEnumerator appearTheAwardBox()
     {
-        newAwardBox.SetActive(true);
+        awardBox.SetActive(true);
         yield return new WaitForSeconds(waitingTime);
-        Destroy(newAwardBox);
+        Destroy(awardBox);
     }
 }
