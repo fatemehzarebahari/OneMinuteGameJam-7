@@ -26,6 +26,7 @@ public class StarShooter : MonoBehaviour
     void Awake() 
     {
         count = 0;
+        stars.Clear();
         Time.timeScale = 1;
         radius = transform.localScale.x;
         Shoot(xDirection, yDirection);
@@ -75,10 +76,9 @@ public class StarShooter : MonoBehaviour
         foreach (GameObject star in stars)
         {
             Destroy(star);
-            //removeStar(star);
-            count--;
         }
-        //stars.RemoveAll();
+        stars.Clear();
+        count = 0;
     }
 
 }

@@ -13,8 +13,8 @@ public class luckBox : MonoBehaviour
     [SerializeField]
     Transform starParent;
 
-    //[SerializeField]
-    //ParticleSystem explosion;
+    [SerializeField]
+    ParticleSystem explosion;
 
     List<Transform> children;
 
@@ -29,7 +29,7 @@ public class luckBox : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //explosion.Play();
+        explosion.Play();
         openBox.Play(); 
         Destroy(gameObject);
         createRandomLines();

@@ -13,6 +13,13 @@ public class timer : MonoBehaviour
     [SerializeField]
     GameObject winningMenu;
 
+    [SerializeField]
+    AudioSource wonAudio;
+
+    [SerializeField]
+    AudioSource loseAudio;
+
+
 
     float timeRemaining = 60;
     private void Awake()
@@ -22,7 +29,7 @@ public class timer : MonoBehaviour
     void Update()
     {
         print(StarShooter.count);
-        if(StarShooter.count == 0)
+        if(StarShooter.count <= 0)
         {
             StartCoroutine(won(2));
         }
@@ -34,13 +41,16 @@ public class timer : MonoBehaviour
         else
         {
             if (StarShooter.count != 0)
-                lost();
+                StartCoroutine(lost(0.5f));
         }
     }
 
-    void lost()
+    IEnumerator lost(float t)
     {
+        yield return new WaitForSeconds(t);
         Time.timeScale = 0;
+        loseAudio.Play();
+
         loosingMenu.SetActive(true);
     }
      IEnumerator won(float t)
@@ -48,6 +58,7 @@ public class timer : MonoBehaviour
 
         yield return new WaitForSeconds(t);
         Time.timeScale = 0;
+        wonAudio.Play();
         winningMenu.SetActive(true);
 
     }
